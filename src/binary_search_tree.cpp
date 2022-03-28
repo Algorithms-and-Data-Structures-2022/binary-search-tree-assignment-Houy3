@@ -100,10 +100,14 @@ namespace assignment {
         node->value = min->value;
         return remove(min->key, node->right);
       } else if (node->right != nullptr) {
-        node = node->right;
+        Node* node2 = node->right;
+        delete node;
+        node = node2;
         return true;
       } else {
-        node = node->left;
+        Node* node2 = node->left;
+        delete node;
+        node = node2;
         return true;
       }
     }
