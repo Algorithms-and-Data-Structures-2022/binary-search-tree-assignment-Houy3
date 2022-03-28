@@ -91,7 +91,8 @@ namespace assignment {
 
     if (key < node->key) {
       return remove(key, node->left);
-    } else if (key > node->key) {
+    }
+    if (key > node->key) {
       return remove(key, node->right);
     } else {
       if (node->right != nullptr && node->left != nullptr) {
@@ -99,7 +100,8 @@ namespace assignment {
         node->key = min->key;
         node->value = min->value;
         return remove(min->key, node->right);
-      } else if (node->right != nullptr) {
+      }
+      if (node->right != nullptr) {
         Node* node2 = node->right;
         delete node;
         node = node2;
@@ -111,8 +113,6 @@ namespace assignment {
         return true;
       }
     }
-
-
   }
 
   void BinarySearchTree::clear(Node* node) {
